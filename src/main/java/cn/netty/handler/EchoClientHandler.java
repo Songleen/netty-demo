@@ -17,7 +17,9 @@ public class EchoClientHandler extends SimpleChannelInboundHandler<ByteBuf> {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         // 当被通知的channel是活跃的时候，发送一条消息
+
         ctx.writeAndFlush(Unpooled.copiedBuffer("Netty rocks!", CharsetUtil.UTF_8));
+        System.out.println("客户端消息已经发送");
     }
 
     @Override
